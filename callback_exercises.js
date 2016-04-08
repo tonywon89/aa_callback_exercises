@@ -5,15 +5,39 @@ function Clock () {
   this.minutes = date.getMinutes();
   this.seconds = date.getSeconds();
 
-  // todo: Call print time
+  this.printTime();
 
-  // todo: schedule tick at 1 second intervals
+  setInterval(this._tick.bind(this), 1000);
 }
 
 Clock.prototype.printTime = function () {
   console.log(String(this.hours) + ":" + this.minutes + ":" + this.seconds);
 };
-// 
-// var clock = new Clock();
+
+Clock.prototype._tick = function () {
+  this.seconds++;
+  if (this.seconds === 60) {
+    this.minutes++;
+    this.seconds = 0;
+  }
+
+  if (this.minutes === 60) {
+    this.hours++;
+    this.minutes = 0;
+  }
+
+  if (this.hours === 24) {
+    this.hours = 0;
+  }
+
+  this.printTime();
+};
+
 //
-// clock.printTime();
+var clock = new Clock();
+//
+// var i = 0;
+// while (i < 500) {
+//   clock._tick();
+//   i++;
+// }
