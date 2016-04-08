@@ -47,8 +47,21 @@ HanoiGame.prototype.isValidMove = function(startTowerIdx, endTowerIdx) {
   }
 };
 
+HanoiGame.prototype.move = function(startTowerIdx, endTowerIdx) {
+  if (this.isValidMove.bind(this, startTowerIdx, endTowerIdx)()) {
+    this.stacks[endTowerIdx].push(this.stacks[startTowerIdx].pop());
+    return true;
+  } else {
+    return false;
+  }
+};
+
 
 var game = new HanoiGame([[3, 2], [1], []]);
+game.move(0, 2);
+console.log(game.stacks);
+game.move(2, 1);
+console.log(game.stacks);
 // console.log(game);
 // game.promptMove(function (start, end) {
 //   console.log(start + ":" + end);
