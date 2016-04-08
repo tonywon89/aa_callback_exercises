@@ -33,11 +33,4 @@ Clock.prototype._tick = function () {
   this.printTime();
 };
 
-//
 var clock = new Clock();
-//
-// var i = 0;
-// while (i < 500) {
-//   clock._tick();
-//   i++;
-// }
