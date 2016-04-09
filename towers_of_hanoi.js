@@ -56,20 +56,11 @@ HanoiGame.prototype.move = function(startTowerIdx, endTowerIdx) {
   }
 };
 
+HanoiGame.prototype.print = function () {
+  for (var i = 0; i < this.stacks.length; i++) {
+    console.log("Tower " + i + ": " + JSON.stringify(this.stacks[i]));
+  }
+};
 
 var game = new HanoiGame([[3, 2], [1], []]);
-game.move(0, 2);
-console.log(game.stacks);
-game.move(2, 1);
-console.log(game.stacks);
-// console.log(game);
-// game.promptMove(function (start, end) {
-//   console.log(start + ":" + end);
-// });
-
-// console.log(game.isValidMove(0, 1));
-// console.log(game.isValidMove(1, 2));
-// console.log(game.isValidMove(0, 2));
-// console.log(game.isValidMove(1, 0));
-// console.log(game.isValidMove(2, 0));
-// reader.close();
+game.print();
