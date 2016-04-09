@@ -62,5 +62,14 @@ HanoiGame.prototype.print = function () {
   }
 };
 
-var game = new HanoiGame([[3, 2], [1], []]);
-game.print();
+HanoiGame.prototype.isWon = function () {
+  if (this.stacks[0].length === 0 &&
+     (this.stacks[1].length === 0 || this.stacks[2].length === 0)) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+var game = new HanoiGame([[3,2,1], [], []]);
+console.log(game.isWon());
