@@ -71,5 +71,11 @@ HanoiGame.prototype.isWon = function () {
   }
 };
 
-var game = new HanoiGame([[3,2,1], [], []]);
-console.log(game.isWon());
+HanoiGame.prototype.run = function (completionCallback) {
+  // while (!this.isWon)
+    this.promptMove(this.move.bind(this));
+
+};
+
+var game = new HanoiGame([[3, 2, 1], [], []]);
+game.run();
